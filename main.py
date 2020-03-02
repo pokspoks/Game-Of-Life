@@ -1,6 +1,5 @@
 import argparse
 import time
-import time
 import msvcrt
 
 import boardGen
