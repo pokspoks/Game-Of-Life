@@ -8,6 +8,8 @@ Use flag `-h` for help with optional arguments.
 ## Key bindings
 `WASD` Move cursor
 
+`I` Invert current cell's state
+
 `J/K` Increase/decrease simulation speed by 0.1
 
 `P` Pause simulation
