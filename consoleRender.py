@@ -1,22 +1,37 @@
 import os
 
 
-def render_board(board_state, dead_cell_char=' ', alive_cell_char='O', horizontal_border_char='-', vertical_border_char='|'):
+def render_board(
+        board_state,
+        cursor_pos,
+        dead_cell_char=' ',
+        dead_cell_highlight_char='█',
+        alive_cell_char='O',
+        alive_cell_higlight_char='●',
+        horizontal_border_char='-',
+        vertical_border_char='|'):
+
     buffer = ''
     first_cell = True
 
     print_horizontal_border(board_state, horizontal_border_char)
 
-    for row in board_state:
-        for cell in row:
+    for r, row in enumerate(board_state):
+        for c, cell in enumerate(row):
             if first_cell == True:
                 buffer += vertical_border_char
                 first_cell = False
 
             if cell == 1:
-                buffer += alive_cell_char
+                if [r, c] == cursor_pos:
+                    buffer += alive_cell_higlight_char
+                else:
+                    buffer += alive_cell_char
             else:
-                buffer += dead_cell_char
+                if [r, c] == cursor_pos:
+                    buffer += dead_cell_highlight_char
+                else:
+                    buffer += dead_cell_char
         buffer += vertical_border_char
 
         print(buffer)
